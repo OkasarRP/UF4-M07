@@ -18,6 +18,8 @@ return new class extends Migration
             $table->float('price');
             $table->integer('stock');
             $table->timestamps();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
         });
     }
 
