@@ -9,10 +9,10 @@ class Provider extends Model
 {
     use HasFactory;
 
-    public function product()
+    public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class,'products_providers');
     }
 
-    
+
 }

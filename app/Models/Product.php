@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public function provider()
+    public function providers()
     {
-        return $this->belongsToMany(Provider::class);
+        return $this->belongsToMany(Provider::class, 'products_providers');
     }
+
 }
