@@ -3,7 +3,7 @@ CREATE DATABASE prodprov;
 
 
 
-CREATE USER 'prodprov'@'localhost' IDENTIFIED BY 'prodprov';
+CREATE USER 'prodprov'@'localhost' IDENTIFIED BY 'Qmq%3p691';
 GRANT ALL PRIVILEGES ON prodprov.* TO 'prodprov'@'localhost';
 
 use prodprov;
