@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProviderController;
+use App\Http\Controllers\Api\AuthController;
 
 
 /*
@@ -19,6 +20,7 @@ use App\Http\Controllers\Api\ProviderController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
 });
 
 Route::get('/user',function (Request $request){
@@ -26,4 +28,13 @@ Route::get('/user',function (Request $request){
 })->middleware('auth:sanctum');
 
 Route::resource('products',ProductController::class);
-Route::resource('provider',ProviderController::class);
+    Route::resource('provider',ProviderController::class);
+    Route::post('login', [AuthController::class,'login']);
+    Route::post('register',[AuthController::class,'register']);
+
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('user', [AuthController::class,'user']);
+});
+
+
