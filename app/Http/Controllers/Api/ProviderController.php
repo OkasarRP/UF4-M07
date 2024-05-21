@@ -9,9 +9,9 @@ use App\Models\Provider;
 class ProviderController extends Controller
 {
     function index(){
-        $prodvider = Provider::all();
-        if($prodvider->isNotEmpty()){
-            return response()->json(['provider'=>$prodvider],200, [], JSON_UNESCAPED_UNICODE);
+        $provider = Provider::all();
+        if($provider->isNotEmpty()){
+            return response()->json(['provider'=>$provider],200, [], JSON_UNESCAPED_UNICODE);
         }else{
             return response()->json(['provider'=>'no provider'],404, [], JSON_UNESCAPED_UNICODE);
         }
@@ -19,9 +19,9 @@ class ProviderController extends Controller
     function store(Request $request){
         $provider = Provider::create($request->all());
         if($provider){
-            return response()->json(['povider'=>'Se ha insertado correctamente'],200, [], JSON_UNESCAPED_UNICODE);
+            return response()->json(['provider'=>'Se ha insertado correctamente'],200, [], JSON_UNESCAPED_UNICODE);
         }else{
-            return response()->json(['povider'=>'No se ha podido insertar'],404, [], JSON_UNESCAPED_UNICODE);
+            return response()->json(['provider'=>'No se ha podido insertar'],404, [], JSON_UNESCAPED_UNICODE);
         }
     }
     function create(Request $request){
